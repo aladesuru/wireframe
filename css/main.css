@@ -43,6 +43,11 @@ ul
   width: 100%;
 }
 
+h2
+{
+  font-size: 1.3em;
+}
+
 header
 {
   background-color: #000;
@@ -64,10 +69,10 @@ form input
 * wrapper style
 **********************************************/
 .wrapper{
-  width: 90%;
+  width: 96%;
   margin: auto;
-  max-width: 1200px;
-  border: 1px solid red;
+  max-width: 1400px;
+  /*border: 1px solid red;*/
 }
 
 @media all and (max-width: 768px)
@@ -81,43 +86,156 @@ form input
 /*********************************************
 * header style
 **********************************************/
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin-bottom: 20px;
+  z-index: 1000;
+}
 .header{
-  padding: 10px;
+  padding: 20px;
+}
+
+.header form{
+  background-color: #fff;
+}
+
+.header .search-btn{
+  background-color: #128fdc;
+  color: #fff;
+  cursor: pointer;
+  float: right;
+}
+
+.header .search-input{
+  width: 70%;
+}
+
+@media all and (min-width: 769px)
+{
+    
+    .header h2{
+      float: left;
+  }
+
+    .header form{
+    width: 40%;
+    float: right;
+  }
+
+    .header::after{
+    content: " ";
+    display: block;
+    clear: both;
+  }
+
+    .header form input:first-child{
+    width: 50%;
+    float: left;
+  }
+
+
 }
 
 /*********************************************
 * main content style
 **********************************************/
 .main-content{
-  margin: 20px 0;
+  margin: 100px 0;
 }
 
+.main-content ul{
+  text-align: center;
+}
+.main-content h4{
+ /* padding: 10px 0;*/
+}
 .main-content ul li{
-  border: 2px solid #212124;
-  margin: 10px 1%;
-  background-color: #eee;
+  border: 2px solid #ccc;
+  margin: 10px 0.5%;
+  padding: 10px .5%;
+  background-color: #f5f5f5;
+  text-align: left;
 }
 
 .main-content img{
   height: 240px;
 }
 
+.photo-frame{
+  height: 240px;
+}
+
+.photo-description,
+.photo-tags
+{
+  height: 80px;
+  overflow-y: auto;
+  box-shadow: inset 0px 1px 2px #000;
+  background-color: #fff;
+  margin: 10px 0;
+}
+
+.photo-title a{
+  font-size: .98em; 
+  word-break: keep-all;
+  word-wrap: break-word;
+  text-overflow: clip;
+  color: #999;
+}
+.photo-title span{
+  margin-left: 10px;
+}
+
+
 @media all and (min-width: 769px)
 {
+  .main-content{
+    margin: 70px 0;
+  }
   .main-content ul li{
     display: inline-block;
     vertical-align: top;
-    width: 20%;
-    padding: 10px 1%;
+    width: 32%;
   }
 
-  .main-content ul li:first-child{
-    margin-left: 6%;
+  .photo-frame-title-container{
+    position: relative;
   }
+  .photo-description-container{
+    margin-top: 10px;
+  }
+
+  .photo-frame-title-container:hover .photo-title{
+    opacity: 1;
+  }
+
+  .photo-title{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    background-color: rgba(0,0,0, .5);
+    width: 100%;
+    transition: all .65s ;
+    opacity: 0;
+    color: #fff;
+  }
+
+  .photo-title a{
+    font-size: 10px;
+    color: #fff;  
+  }
+
 }
 
-@media all and (min-width: 1200px)
+@media all and (min-width: 1600px)
 {
-
+  .main-content ul li{
+    width: 23.5%;
+  }
 
 }
+
